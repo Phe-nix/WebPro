@@ -27,7 +27,9 @@ function findTotal (input) {
     // TODO: ให้หาผลบวกของเลขทั้งหมดใน input
     let num = 0
     for (let i = 0; i < input.length; i++) {
-        num += input[i]
+        if(i % 2 != 0){
+            num += input[i]
+        }
     }
     return num
 }

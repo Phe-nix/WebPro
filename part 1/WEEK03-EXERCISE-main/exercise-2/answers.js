@@ -35,11 +35,14 @@ function getFullName(input) {
 
 function getFirstName(input) {
     // TODO: ให้ทำการตัดนามสกุลออกโดยใช้ indexOf() และ substring()
-    let sub = input.substring(0, 5)
-    if (input.indexOf(" ")){
-        return sub.substring(0, input.indexOf(" "))
-    }
-    else{
-        return input.substring(0, 5)
-    }
+    // let sub = input.substring(5, 12)
+    // if (input.indexOf(" ")){
+    //     return sub.substring(0, input.indexOf(" "))
+    // }
+    // else{
+    //     return input.substring(0, 5)
+    // }
+
+    let space = input.indexOf(' ')
+    return input.substring(space + 1)
 }
