@@ -31,26 +31,34 @@ function start() {
         end.innerHTML = 'Program ended'
     }, 3000)
 }
+
+
 // ข้อ 2.3
 function stopTime() {
     // hint: ส่ง callback function เข้าไปเป็น argument ของ setInterval()
-    let minute = document.getElementById('setMinute')
-    let setSecond = document.getElementById('setSecond')
-    let sec = document.getElementById('Time')
-    let min = Math.floor(sec.value / 60)
-    let mainSec = 0
-    minute.innerHTML = min
-    setSecond.innerHTML = mainSec
-    setInterval(() => { 
-        mainSec--
-        setSecond.innerHTML = mainSec
-        if (mainSec <= 0) {
-            mainSec = 60
-            min--
-            minute.innerHTML = min
+    let setMinuteElement = document.getElementById("setMinute");
+    let setSecondElement = document.getElementById("setSecond");
+    let timeElement = document.getElementById("Time");
+    let setMinute = Math.floor(timeElement.value / 60);
+    let mainSec = timeElement.value % 60;
+    const setSecond = setInterval(timer, 1000);
+
+
+    function timer() {
+        if (setMinute <= 0 && mainSec <= 0) {
+            console.log("Time is up");
+            setMinuteElement.innerHTML = '00';
+            setSecondElement.innerHTML = '00';
+            clearInterval(setSecond);
         }
-        else if (min == 0 && mainSec == 0) {
-            clearInterval()
+        if (mainSec == 0) {
+            setMinute--;
+            mainSec = 60;
         }
-    }, 1000)
+        else{
+            setMinuteElement.innerHTML = setMinute;
+            setSecondElement.innerHTML = mainSec;
+            mainSec--;
+        }
+    }
 }
