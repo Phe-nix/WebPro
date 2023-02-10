@@ -6,7 +6,7 @@ function display(msg) {
 }
 
 function showConfirm(callback) {
-    if (window.confirm('ยืนยันไหมครับ?')) {
+    if (confirm('ยืนยันไหมครับ?')) {
         callback('ยืนยันจ้า')
     }
     else {
@@ -14,6 +14,7 @@ function showConfirm(callback) {
     }
 }
 
+//Array.map(() => console.log())
 
 // ข้อ 2.2
 function start() {
