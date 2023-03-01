@@ -89,7 +89,7 @@
 
             <!-- ข้อ 3 ----------------------------------------------------------------- -->
             <div id='ex3'>
-                <a v-if = "number_runner % 2 == 0" class="button is-danger">Odd Number</a>
+                <a v-if = "number_runner % 2 == 0 && number_runner != 0" class="button is-danger">Odd Number</a>
                 <a v-if = 'number_runner % 2 != 0' class="button is-success">Even Number</a>
                 <a v-if = "number_runner == 0   " class="button is-info">Zero Number</a>
             </div>
@@ -105,8 +105,8 @@
 
             <!-- ข้อ 4 ----------------------------------------------------------------- -->
             <div id='ex4'>
-                <ul>
-                    {{months}}
+                <ul v-for = "i in months">
+                    {{i}}
                 </ul>
             </div>
 
@@ -127,6 +127,7 @@
                 <a @click="counter--" class=button>-</a>
                 <a class="is-size-4 mx-5">{{counter}}</a>
                 <a @click="counter++" class=button>+</a>
+                <a @click="counter *= counter" class=button>reset</a>
             </div>
 
             <hr>

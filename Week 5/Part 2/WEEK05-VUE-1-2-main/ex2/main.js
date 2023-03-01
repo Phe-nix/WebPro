@@ -1,6 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
+        income: 0,
+        mount: 0,
         shopName: 'Gunda Shop',
         products: [
             {
@@ -55,5 +57,31 @@ var app = new Vue({
         ],
         cart: [],
         show_modal: false
+    },
+    methods: {
+        checkStar(event){
+            console.log(event)
+            let totalPrice = this.cart.map((e) => e.price).reduce((ac, be) => ac + be, 0);
+            console.log(totalPrice + event.price);
+            if (event.is_favorite == true) {
+                if (this.income > totalPrice + event.price) {
+                    this.cart.push(event)
+                } else {
+                    alert("Kuay")
+                }
+            }
+            else{
+                alert("เอาตัวที่มีดาว")
+            }
+            // if (app.income < totalPrice) {
+            //     if (event.is_favorite == true) {
+            //         app.cart.push(event)
+            //     } else {
+            //         alert("Star First")
+            //     }
+            // } else {
+            //     alert("Limit")
+            // }
+        }
     },
 })
